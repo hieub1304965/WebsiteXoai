@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Chen tap tin head.ejs -->
+    <% include ../../partials/header.ejs %>
+    <!-- Ajax Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery 3.2.1 -->
+    <script src="/plugins/jQuery/jquery-3.2.1.min.js"></script>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <!-- Chen tap tin nav.ejs -->
+      <% include ../../partials/nav.ejs %>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h2>
+            Thêm hoá đơn
+          </h2>
+          <ol class="breadcrumb">
+            <li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+            <li><a href="/quantrac/nongdan/chitieu/danhsach">Quản lý chi tiêu</a></li>
+            <li class="active">Thêm hoá đơn mới</li>
+          </ol>
+        </section>
+        <!-- Content body -->
+        <section class="content">
+          <!-- Khu vực hiển thị lời -->
+          <div class="row">
+            <div class="col-md-12" id="error"></div>
+          </div>
+          <!-- Chèn tập tin thông báo -->
+          <div class="row">
+            <div class="col-md-offset-6 col-md-3 col-sm-offset-6 col-sm-3">
+              <div class="form-group">
+                <select data-none-result-text="Không tìm thấy từ khoá tìm kiếm" data-live-search="true" id="croping_id" name="croping_id" class="form-control selectpicker">
+
+                  <option value="croping.croping_id" selected>Mùa vụ trồng số croping.croping_id</option>
+
+
+                  <option value="croping.croping_id">Mùa vụ trồng số croping.croping_id</option>
+
+                  <option value="croping.croping_id">Mùa vù trồng croping.croping_id</option>
+
+                </select>
+                <span id="errorcroping_id"></span>
+              </div>
+            </div>
+          </div>
+          <div class="box box-primary">
+            <div class="box-header with-border text-center">
+              <h3 class="box-title">
+                <b>Thêm hoá đơn cho đợt trồng số croping_id</b>
+              </h3>
+            </div>
+            <div class="box-body">
+              <form class="form-horizontal" id="frmAddBill">
+                <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="bill_dateInBill">Ngày lập:</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="bill_dateInBill" name="bill_dateInBill" onchange="" />
+                          <span style="color:red; font-weight:bold;" class="input-group-addon">(*)</span>
+                        </div>
+                        <span id="errorbill_dateInBill"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="bill_total">Tổng số tiền:</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="row">
+                          <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                              <input id="bill_total" name="bill_total" class="form-control" value="0" disabled="true" />
+                              <span style="font-weight:bold;" class="input-group-addon">VNĐ</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <hr/>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-md-4 text-right">Chi tiết thêm vào hoá đơn:</label>
+                  <div class="col-md-8">
+                    <div class="radio-inline">
+                      <label><input type="radio" name="typeOfProduct" value="seedling" checked onclick="">Giống cây</label>
+                    </div>
+                    <div class="radio-inline">
+                      <label><input type="radio" name="typeOfProduct" vaulue="material" onclick="">Vật tư</label>
+                    </div>
+                    <div class="radio-inline">
+                      <label><input type="radio" name="typeOfProduct" value="other" onclick="">Khác</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="tab-content">
+                <div id="seedling" class="tab-pane active">
+                  <form name="frmAddSeedling" id="frmAddSeedling">
+                    <!-- <div class="row">
+                      <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="seedling_numberOfLot">Số lô</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="seedling_numberOfLot" name="seedling_numberOfLot" placeholder="Nhập số lô của giống cây"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorseedling_numberOfLot"></span>
+                        </div>
+                      </div> -->
+                      <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="seedlingquality_id">Chất lượng giống:</label>
+                          <div class="input-group">
+                            <select data-none-result-text="Không tìm thấy từ khoá tìm kiếm" data-live-search="true" id="seedlingquality_id" name="seedlingquality_id" class="form-control selectpicker">
+                              <option value="0">Chọn chất lượng giống</option>
+                            </select>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorseedling_size"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="seedling_size">Kích cở cây giống (cm):</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="seedling_size" name="seedling_size" placeholder="Nhập kích cỡ giống"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorseedling_size"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="seedling_quantity">Số lượng cây giống nhập:</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="seedling_quantity" name="seedling_quantity" placeholder="Nhập số lượng cây giống"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorseedling_quantity"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="seedling_price">Đơn giá (VNĐ):</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="seedling_price" name="seedling_price" placeholder="Nhập đơn giá cho cây giống"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorseedling_price"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="seedling_source">Nguồn gốc của cây giống:</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="seedling_source" name="seedling_source" placeholder="Nhập nguồn gốc của cây giống"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorseedling_source"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="form-group text-center">
+                          <input title="Thêm chi tiết giống vào hoá đơn" type="button" id="btnThemChiTietSeelding" name="btnThemChiTietSeedling" value="Thêm" class="btn btn-primary" class="form-control" onclick=" "/>&nbsp;&nbsp;
+                          <input title="Lưu hoá đơn" type="button" name="btnThemHD" value="Lưu hoá đơn" class="btn btn-primary" class="form-control" onclick=" "/>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div id="material" class="tab-pane">
+                  <form name="frmAddMaterial" id="frmAddMaterial">
+                    <div class="row">
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="materialtype_id">Loại vật tư:</label>
+                          <div class="input-group">
+                            <select data-none-result-text="Không tìm thấy từ khoá tìm kiếm" data-live-search="true" id="materialtype_id" name="materialtype_id" class="form-control selectpicker">
+                              <option value="0">Chọn loại vật tư</option>
+                            </select>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errormaterialtype_id"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="material_name">Tên vật tư:</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="material_name" name="material_name" placeholder="Nhập tên vật tư"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errormaterial_numberOfLot"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="unit_id">Đơn vị tính:</label>
+                          <div class="input-group">
+                            <select data-none-results-text="Không tìm thấy từ khoá tìm kiếm" data-live-search="true" id="unit_id" name="unit_id" class="form-control selectpicker">
+                              <option value="0">Chọn đơn vị tính</option>
+                            </select>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorunit_id"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="material_quantity">Số lượng nhập:</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="material_quantity" name="material_quantity" placeholder="Nhập số lượng vật tư nhập"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errormaterial_quantity"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="material_price">Đơn giá (VNĐ):</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="material_price" name="material_price" placeholder="Nhập đơn giá của vật tư"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errormaterial_source"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label" for="material_source">Nguồn gốc:</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="metarial_source" name="material_source" placeholder="Nhập nguồn gốc của vật tư"/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errormaterial_source"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label>Mô tả:</label>
+                          <input class="form-control" type="text" name="material_description" id="material_description" placeholder="Nhập mô tả cho vật tư"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group text-center">
+                                <input title = "Thêm chi tiết vật tư vào hóa đơn" type="button" id ="btnThemChiTietMaterial" name="btnThemChiTietMaterial" value="Thêm" class="btn btn-primary" class="form-control" onclick=" "/>&nbsp;&nbsp;
+                                <input title = "Lưu hóa đơn" type="button" name="btnThemHD" value="Lưu hoá đơn" class="btn btn-primary" class="form-control" onclick=" " />
+                            </div>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+                <div id="other" class="tab-pane">
+                  <form name = "frmAddOther" id = "frmAddOther">
+                      <div class="row">
+                          <div class="col-md-3 col-sm-6">
+                              <div class="form-group">
+                                  <label class="control-label" for="other_name">Tên:</label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" id = "other_name" name="other_name" placeholder="Nhập tên của loại hàng" />
+                                      <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                                  </div>
+                                  <span id="errorother_name"></span>  
+                              </div>
+                          </div>
+                          <div class="col-md-3 col-sm-6">
+                              <div class="form-group">
+                                  <label class="control-label" for="other_quantity">Số lượng:</label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" id = "other_quantity" name="other_quantity" placeholder="Nhập số lượng" />
+                                      <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                                  </div>
+                                  <span id="errorother_quantity"></span>  
+                              </div>
+                          </div>
+                          <div class="col-md-3 col-sm-6">
+                              <div class="form-group">
+                                  <label class="control-label" for="other_price">Đơn giá (VNĐ):</label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" id = "other_price" name="other_price" placeholder="Nhập đơn giá" />
+                                      <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                                  </div>
+                                  <span id="errorother_price"></span>  
+                              </div>
+                          </div>
+                          <div class="col-md-3 col-sm-6">
+                              <div class="form-group">
+                                  <label>Ghi chú:</label>
+                                  <input class = "form-control" type="text" name="other_note" id="other_note"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12 col-sm-12">
+                              <div class="form-group text-center">
+                                  <input title = "Thêm chi tiết khác vào hóa đơn" type="button" id ="btnThemChiTietOther" name="btnThemChiTietOther" value="Thêm" class="btn btn-primary" class="form-control" onclick=" " />&nbsp;&nbsp;
+                                  <input title = "Lưu hóa đơn" type="button" name="btnThemHD" value="Lưu hoá đơn" class="btn btn-primary" class="form-control" onclick=" " />
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+                <hr/>
+                <div class="row text-center">
+                  <h5><b>Chi tiết hoá đơn</b></h5>
+                </div>
+                <div class="row" id="divBillSeedlingDetail" style="display: none;">
+                  <div class="col-md-12">
+                    <label>Danh sách cây giống</label>
+                  </div>
+                  <div class="col-md-12 table-responsive">
+                    <form id="frmEditSeedlingDetail" name="frmEditSeedlingDetail">
+                      <table class="bg-primary">
+                        <thead>
+                          <tr class="bg-primary">
+                            <td width="3%">STT</td>
+                            <td width="12%">Số lô</td>
+                            <td width="15%">Chất lượng</td>
+                            <td width="6%">Kích cở (cm)</td>
+                            <td>Nguồn gốc</td>
+                            <td width="8%">Số lượng</td>
+                            <td width="10%">Đơn giá (VNĐ)</td>
+                            <td width="10%">Thành tiền (SL x ĐG)</td>
+                            <td width="8%">Thao tác</td>
+                          </tr>
+                        </thead>
+                        <tbody id="listBillSeedlingDetail">
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+                <div class="row" id='divBillMaterialDetail' style="display: none;">
+                  <div class="col-md-12">
+                      <label>Danh sách vật tư</label>
+                  </div>
+                  <div class="col-md-12 table-responsive">
+                      <form id="frmEditMaterialDetail" name = "frmEditMaterialDetail">
+                          <table class="table table-bordered table-hover">
+                              <thead>
+                                  <tr class="bg-primary">
+                                      <td width="3%">STT</td>
+                                      <td width="10%">Loại vật tư</td>
+                                      <td width="9%">Tên</td>
+                                      <td width="10%">Số lô</td>
+                                      <td width="10%">Đơn vị tính</td>
+                                      <td width="10%">Nguồn gốc</td>
+                                      <td>Mô tả</td>
+                                      <td width="8%">Số lượng</td>
+                                      <td width="10%">Đơn giá (VNĐ)</td>
+                                      <td width="10%">Thành tiền (SL x ĐG)</td>
+                                      <td width="8%">Thao tác</td>
+                                  </tr>
+                              </thead>
+                              <tbody id='listBillMaterialDetail'>                         </tbody>
+                          </table>
+                      </form>
+                  </div>
+                </div>
+                <div class="row" id='divBillOtherDetail' style="display: none;">
+                  <div class="col-md-12">
+                      <label>Danh sách hàng hóa khác</label>
+                  </div>
+                  <div class="col-md-12 table-responsive">
+                      <form id="frmEditOtherDetail" name = "frmEditOtherDetail">
+                          <table class="table table-bordered table-hover">
+                              <thead>
+                                  <tr class="bg-primary">
+                                      <td width="3%">STT</td>
+                                      <td width="20%">Tên</td>
+                                      <td>Ghi chú</td>
+                                      <td width="8%">Số lượng</td>
+                                      <td width="10%">Đơn giá (VNĐ)</td>
+                                      <td width="10%">Thành tiền (SL x ĐG)</td>
+                                      <td width="8%">Thao tác</td>
+                                  </tr>
+                              </thead>
+                              <tbody id='listBillOtherDetail'>     
+                              </tbody>
+                          </table>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Chen tap tin script.ejs -->
+      <% include ../../partials/script.ejs %>
+      <!-- Chen tap tin sidebar.ejs -->
+      <%include ../../partials/sidebar.ejs %>
+    </div>
+  </body>
+</html>

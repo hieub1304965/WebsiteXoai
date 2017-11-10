@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/header.ejs %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!--<script src="/socket.io/socket.io.js"></script> -->
+  <!-- jQuery -->
+  <script src="/plugins/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+      <% include partials/nav.ejs %>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Trang chủ
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+          <li class="active">Bảng điều khiển</li>
+        </ol>
+      </section>
+      <section class="content">
+        <h3><%= username %></h3>
+      </section>
+      <!-- /.content -->
+      </div>
+		  <!-- /.content-wrapper -->
+      <% include partials/script.ejs %>
+		 <% include partials/sidebar.ejs %>
+      
+       
+    </div>
+</body>
+</html>

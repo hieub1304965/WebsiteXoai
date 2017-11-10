@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Chen tap tin head.ejs -->
+    <% include ../../partials/header.ejs %>
+    <!-- Ajax Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="/plugins/jQuery/jquery-3.2.1.min.js"></script>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <!-- Chen tap tin nav.ejs -->
+      <% include ../../partials/nav.ejs %>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <section class="content-header">
+            <div class="box-header with-border text-center">
+              <h3>Thêm thu hoạch</h3>
+            </div>
+          <ol class="breadcrumb">
+            <li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+            <li><a href="/quantrac/nongdan/thuhoach/danhsach">Quản lý thu hoạch</a></li>
+            <li class="active">Thêm thu hoạch</li>
+          </ol>
+        </section>
+
+        
+
+
+        <div class="box box-primary">
+          <div class="box-body">
+              <form class="form-horizontal" name="frmAddHavest" id="frmAddHavest">
+                <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="farmyard_id">Đất:</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <select data-none-results-text="Không tìm thấy từ khóa tìm kiếm" data-live-search="true" id= "pond_id" name = "pond_id" class="form-control selectpicker">
+                                <option value="0">Chọn mảnh đất thu hoạch</option>
+                            </select>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                        </div>
+                        <span id="errorfarmyard_id"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form class="form-horizontal" id="frmAddHavestTime">
+                <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="havest_havest">Thời điểm:</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="havest_havest" name="havest_havest"/>
+                          <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                        </div>
+                        <span id="errorhavest_havest"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form class="form-horizontal" id="frmAddHavestMethol">
+                <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="havest_havest">Cách thu hoạch:</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="havest_havest" name="havest_havest"/>
+                          <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                        </div>
+                        <span id="errorhavest_havest"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="havest_havest">Sản lượng:</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="havest_havest" name="havest_havest"/>
+                          <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                        </div>
+                        <span id="errorhavest_havest"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="row">
+                  <div class="col-md-offset-5 col-md-7 col-sm-offset-5 col-sm-7">
+                      <input title = "Thêm chi tiết cho đợt thu hoạch" type="button" id ="btnThemHavestDetail" name="btnThemHavestDetail" value="Thêm" class="btn btn-primary" class="form-control" onclick="addHavestDetail()"/>&nbsp;&nbsp;&nbsp;
+                      <input title="Lưu đợt thu hoạch" type="button" id ="btnThemHavest" name="btnThemHavest" value="Lưu thu hoạch" class="btn btn-primary" class="form-control" onclick="saveAddHavest()" />
+                      <span style="color:red;font-weight:bold;">&nbsp;(*)</span> là bắt buộc
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Các xử lý trên trang -->
+      <script>
+        $(document).ready(function(){
+          $.validator.setDefaults({
+            errorClass:'help-block',
+            highlight:function(element){
+              $(element).closest('form-group').addClass('has-error');
+            },
+            unhighlight:function(element){
+              $(element).cosest('.form-group').removeClass('has-error');
+            }
+          });
+
+          $.validator.addMethol('checkSelectFarmyard', function(value, element){
+            return this.optional(element) || value >0;
+          }, 'Chưa chọn mảnh đất thu hoạch');
+          $.validator.addMethol('checkQuantity',function(value, element){
+            return this.optional(element) || /^(((0|[1-9]{1}[0-9]*)\.[0-9]{1})|([1-9]{1}))[0-9]*$/i.test(value);
+          }, 'Sản lượng không hợp lệ');
+
+          
+          }
+        });
+
+      </script>
+      <!-- Chen tap tin script.ejs -->
+      <% include ../../partials/script.ejs %>
+      <!-- Chen tap tin sidebar.ejs -->
+      <%include ../../partials/sidebar.ejs %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../../partials/header.ejs %>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      th{
+        background-color: DodgerBlue;
+        text-align:center;
+        font-family: Times New Roman;
+      }
+      h3{
+        text-align:center;
+        font-family: Times New Roman;
+      }
+		</style>
+		<script src="/javascripts/hieuScript.js"></script>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      	<!-- Chèn tập tin nav.ejs -->
+      	<%- include ../../partials/nav.ejs %>
+      	<!-- Content Wrapper. Contains page content -->
+      	<div class="content-wrapper">
+        	<!-- Content Header (Page header) -->
+        	<section class="content-header">
+        		<h1>Kỹ thuật trồng</h1>
+	      		<ol class="breadcrumb">
+	        		<li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+	        		<li class="active">Kỹ thuật trồng</li>
+	      		</ol>
+        	</section>
+        	<!-- /.content -->
+      		<section class="content">
+				<!-- /.content-wrapper -->
+        		<div class="row">
+          			<div class="col-md-12">
+            			<div class="box box-primary">
+              				<div class="box-header with-border text-center">
+                				<h3 class="box-title" ><b>Kỹ thuật trồng</b></h3>
+              				</div>
+              				<div class="box-body">
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															<a href="/quantrac/nongdan/kythuattrong/themkythuat"><button type="button" class="btn btn-primary btn-md">Thêm kỹ thuật trồng</button><br><br></a>
+														</div>
+													</div>
+												</div>
+                				<div class="row">
+                					<div class="col-md-12 table-responsive">
+                						<table class="table table-bordered table-hover">
+															<thead>
+																<tr>
+																		<th rowspan="2">Đấp mô</th>
+																		<th colspan="2">Kích thước mô</th>
+																		<th rowspan="2">Kiểu trồng</th>
+																		<th rowspan="2">Khoảng cách trồng</th>
+																</tr>
+																<tr>
+																		<th>Chiều cao</th>
+																		<th>Chiều rộng</th>
+																</tr>
+															</thead>
+															<tbody id="listTechnical">
+															</tbody>
+														</table>			
+                					</div>
+                				</div>
+											</div>			
+              			</div>
+            		</div>
+          		</div>
+        	</section>
+      	</div>
+        <% include ../../partials/script.ejs %>
+       	<% include ../../partials/sidebar.ejs %>
+	</div>
+  </body>
+</html>

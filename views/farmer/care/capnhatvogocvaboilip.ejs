@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Chen tap tin head.ejs -->
+    <% include ../../partials/header.ejs %>
+    <!-- Ajax Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="/plugins/jQuery/jquery-3.2.1.min.js"></script>
+    
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <!-- Chen tap tin nav.ejs -->
+      <% include ../../partials/nav.ejs %>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            Cập nhật vô gốc và bồi líp
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+            <li><a href="/quantrac/nongdan/chamsoc/xemvogocvaboilip"> Kỹ thuật chăm sóc</a></li>
+            <li class="active">Cập nhật vô gốc và bồi líp</li>
+          </ol>
+        </section>
+        <!-- Content body -->
+        <div class="box box-primary">
+          <div class="box-body">
+            <form class="form-horizontal" id="frmupdate">
+              <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Thời điểm</label>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                  <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="" name=""/>
+                        <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                      </div>
+                      <span id="errorhavest_havest"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Bề dày lớp bùn(cm)</label>
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="" name=""/>
+                          <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                        </div>
+                        <span id="errorhavest_havest"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Khoảng cách hai lần vô gốc/bồi líp</label>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                      <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="" name=""/>
+                            <span style="color:red;font-weight:bold;" class="input-group-addon">(*)</span>
+                          </div>
+                          <span id="errorhavest_havest"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <div class="form-group">
+                  <div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary" title="Thêm mùa vụ trồng">Cập nhật</button>&nbsp;
+                    <a href="/quantrac/nongdan/chamsoc/xemvogocvaboilip">
+                      <button type="button" class="btn btn-primary" title="Huỷ bỏ thêm mùa vụ trồng">Huỷ bỏ</button>
+                    </a>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </div>
+                  
+      </div>
+      <!-- Chen tap tin script.ejs -->
+      <% include ../../partials/script.ejs %>
+      <!-- Chen tap tin sidebar.ejs -->
+      <%include ../../partials/sidebar.ejs %>
+    </div>
+  </body>
+</html>

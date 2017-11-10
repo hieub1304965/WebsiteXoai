@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Chen tap tin head.ejs -->
+    <% include ../../partials/header.ejs %>
+    <!-- Ajax Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="/plugins/jQuery/jquery-3.2.1.min.js"></script>
+    
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <!-- Chen tap tin nav.ejs -->
+      <% include ../../partials/nav.ejs %>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            Cập nhật quy trình bón cho một vụ
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+            <li><a href="/quantrac/nongdan/chamsoc/quytrinhbonchomotvu"> Kỹ thuật chăm sóc</a></li>
+            <li class="active">Cập nhật quy trình bón cho một vụ</li>
+          </ol>
+        </section>
+        <!-- Content body -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-header with-border text-center">
+                  <h3 class="box-titile"><b>Quy trình bón cho một vụ </b></h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" name="updateFrm" id="updateFrm" method="post" action="/quantrac/nongdan/care/xemvogocvaboilip">
+                        <div class="form-group">
+                  		    <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Thời kỳ:</label>
+                  		    <div class="col-lg-8 col-md-8 col-sm-8">
+                  			    <div class="row">
+                  				    <div class="col-md-6 col-xs-12">
+                  					    <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                  					    </div>
+                  					    <span id="errorcropingtype_id"></span>
+                  				    </div>
+                  			    </div>
+                  		    </div>
+                  	    </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Tháng:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Phân hoá học:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Lượng cây:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                          <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Cách bón:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Phân hữu cơ:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Phân bón lá:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Phân khác(vôi):</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" id="" value=""></input>
+                                        </div>
+                                        <span id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  	    <div class="form-group">
+                  		    <div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8">
+                  			    <button type="submit" class="btn btn-primary" title="Thêm mùa vụ trồng">Cập nhật</button>&nbsp;
+                  			    <a href="/quantrac/nongdan/chamsoc/quytrinhbonchomotvu">
+                  			        <button type="button" class="btn btn-primary" title="Huỷ bỏ thêm mùa vụ trồng">Huỷ bỏ</button>
+                  			    </a>
+                  		    </div>
+                  	    </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Chen tap tin script.ejs -->
+      <% include ../../partials/script.ejs %>
+      <!-- Chen tap tin sidebar.ejs -->
+      <%include ../../partials/sidebar.ejs %>
+    </div>
+  </body>
+</html>

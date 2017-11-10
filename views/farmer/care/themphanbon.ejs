@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Chen tap tin head.ejs -->
+    <% include ../../partials/header.ejs %>
+    <!-- Ajax Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="/plugins/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Chen tap tin nav.ejs -->
+        <% include ../../partials/nav.ejs %>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    Thêm phân bón
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+                    <li><a href="/quantrac/nongdan/chamsoc/danhsach">Kỹ thuật chăm sóc</a></li>
+                    <li class="active">Thêm phân bón</li>
+                </ol>
+            </section>
+            <!-- content body -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-primary">
+                        <div class="box-header with-border text-center">
+                            <h3 class="box-titile"><b>Thêm phân bón</b></h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" name="createFertilizerFrm" id="createFertilizerFrm" method="post" action="/quantrac/nongdan/chamsoc/themphanbon">
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4 col-md-4 col-sm-4" for="fertilizer_id">Tên loại phân bón</label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="input-group">
+                                                    <select data-none-result-text="Không tìm thấy từ khoá tìm kiếm" data-live-search="true" id="fertilizer_id" name="fertilizer_id" class="form-control selectpicker">
+                                                        <option value="0">Chọn tên phân bón</option>
+                                                    </select>
+                                                    <span style="color:red; font-weight:bold;" class="input-group-addon">(*)</span>
+                                                </div>
+                                                <span id="errorfertilizer_id"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Liều lượng</label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="" id="">
+                                                    <span style="color:red; font-weight:bold;" class="input-group-addon">(*)</span>
+                                                </div>
+                                                <span id="error_id"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4 col-md-4 col-sm-4" for="usemethod_note">Cách sử dụng</label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12">
+                                                <textarea class="form-control" rows="5" name="usemethod_note" id="usemethod_note"></textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4 col-md-4 col-sm-4" for="">Tác dụng</label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12">
+                                                <form action="">
+                                                    <input type="radio" name="have" id="">Có </br>
+                                                    <input type="radio" name="have" id="">Không
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8">
+                                        <button type="submit" class="btn btn-primary" title="Thêm phân bón">Thêm phân bón</button>&nbsp;
+                                        <a href="/quantrac/nongdan/chamsoc/phanbon">
+                                            <button type="button" class="btn btn-primary" title="Huỷ bỏ thêm mùa vụ trồng">Huỷ bỏ</button>
+                                        </a>
+                                        <span style="color:red; font-weight:bold;">&nbsp;(*)</span> là bắt buột
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Chen tap tin script.ejs -->
+        <% include ../../partials/script.ejs %>
+        <!-- Chen tap tin sidebar.ejs -->
+        <%include ../../partials/sidebar.ejs %>
+    </div>
+</body>
+</html>

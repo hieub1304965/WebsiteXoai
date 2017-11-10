@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/header.ejs %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        th{
+            background-color: lightblue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <!-- Chèn tập tin nav.ejs -->
+    <%- include ../../partials/nav.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>Kỹ thuật chăm sóc</h1>
+            <ol class="breadcrumb">
+                <li><a href="/quantrac"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+                <li class="active">Kỹ thuật chăm sóc</li>
+            </ol>
+        </section>
+        <!-- /.content -->
+        <section class="content">
+            <!-- /.content-wrapper -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border text-center">
+                            <h3 class="box-title" ><b>Bệnh gây hại</b></h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <a href="/quantrac/nongdan/chamsoc/thembenhgayhai"><button type="button" class="btn btn-primary btn-md">Thêm</button><br><br></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <tr>
+                                            <th>Loài bệnh</th>
+                                            <th>Mức độ gây hại</th>
+                                            <th>Thời gian xuất hiện</th>
+                                            <th>Phòng trị</th>
+                                            <th>Hiệu quả</th>
+                                        </tr>
+                                        <tbody id='benhgayhai_id'></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <% include ../../partials/script.ejs %>
+    <% include ../../partials/sidebar.ejs %>
+    </div>
+</body>
+</html>

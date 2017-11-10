@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/header.ejs %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        th{
+            background-color: lightblue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <!-- Chèn tập tin nav.ejs -->
+    <%- include ../../partials/nav.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>Kỹ thuật chăm sóc</h1>
+            <ol class="breadcrumb">
+                <li><a href="/quantrac"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+                <li class="active">Kỹ thuật chăm sóc</li>
+            </ol>
+        </section>
+        <!-- /.content -->
+        <section class="content">
+            <!-- /.content-wrapper -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border text-center">
+                            <h3 class="box-title" ><b>Quy trình bón cho một vụ</b></h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <a href="/quantrac/nongdan/chamsoc/capnhatquytrinhbonchomotvu"><button type="button" class="btn btn-primary btn-md">Cập nhật </button><br><br></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Thời kỳ bón</th>
+                                                <th>Tháng</th>
+                                                <th>Phân hoá học</th>
+                                                <th>Lượng cây(kg/cây)</th>
+                                                <th>Cách bón</th>
+                                                <th>Phân hữu cơ</th>
+                                                <th>Phân bón lá</th>
+                                                <th>Phân khác(vôi)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="quytrinhbon_id"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <% include ../../partials/script.ejs %>
+    <% include ../../partials/sidebar.ejs %>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $.ajax({
+                url: 'http://quantrac.com:8001/webservice/fertilizer',
+                headers:{
+                    'Content-Type':'application/x-www-form-urlencoded'
+                },
+                method:'GET',
+                success: function(data){
+                    console.log('ok');
+                    var html = '';
+                    console.log(JSON.stringify(data));
+                    var data2 = data.message.ds_fertilizer;
+                    data2.forEach(function(item) {
+                        html += '<tr>'
+                            html += '<td>'+item.fertilizer_id+'</td>'
+                            html += '<td>'+item.fertilizer_time+'</td>'
+                            html += '<td>'+item.fertilizer_month+'</td>'
+                            html += '<td>'+item.fertilizer_namechemical+'</td>'
+                            html += '<td>'+item.fertilizer_apply+'</td>'
+                            html += '<td>'+item.fertilizer_nameorganatic+'</td>'
+                            html += '<td>'+item.fertilazer_foliar+'</td>'
+                            html += '<td>'+item.fertilizer_lime+'</td>'
+                            html += '<td>'+item.fertilizer_dosage+'</td>'
+                        html +='</tr>'
+                    
+                    });
+                    $("#quytrinhbon_id").html(html);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

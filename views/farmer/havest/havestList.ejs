@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../../partials/header.ejs %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      th{
+        background-color: DodgerBlue;
+        text-align:center;
+        font-family: Times New Roman;
+      }
+      h3{
+        text-align:center;
+        font-family: Times New Roman;
+      }
+    </style>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Chèn tập tin nav.ejs -->
+        <% include ../../partials/nav.ejs %>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>Quản lý thu hoạch</h1>
+            <ol class="breadcrumb">
+              <li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+              <li class="active">Quản lý thu hoạch</li>
+            </ol>
+          </section>
+          <!-- /.content -->
+          <section class="content">
+            <!-- /.content-wrapper -->
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="box box-primary">
+                      <div class="box-header with-border text-center">
+                        <h3 class="box-title" ><b>Bảng thu hoạch</b></h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <a href="/quantrac/nongdan/thuhoach/themthuhoach"><button type="button" class="btn btn-primary btn-md">Thêm thu hoạch</button><br><br></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 table-responsive">
+                            <table class="table table-bordered table-hover">
+                              <thead>
+                                    <tr>
+                                      <th>Thời điểm</th>
+                                      <th>Mảnh đất </th>
+                                      <th>Cách thu hoạch</th>
+                                      <th>Đợt</th>
+                                      <th>Sản lượng</th>
+                                      <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listHavest">
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </section>
+        </div>
+        <% include ../../partials/script.ejs %>
+        <% include ../../partials/sidebar.ejs %>
+    </div>
+  </body>
+</html>

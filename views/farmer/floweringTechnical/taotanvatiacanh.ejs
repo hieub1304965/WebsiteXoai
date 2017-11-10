@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../../partials/header.ejs %>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      th{
+        background-color: DodgerBlue;
+        text-align:center;
+        font-family: Times New Roman;
+      }
+      h3{
+        text-align:center;
+        font-family: Times New Roman;
+      }
+	</style>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+			<!-- Chèn tập tin nav.ejs -->
+			<%- include ../../partials/nav.ejs %>
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<section class="content-header">
+					<h1>Quản lý đất</h1>
+					<ol class="breadcrumb">
+						<li><a href="/quantrac/nongdan"><i class="fa fa-dashboard"></i> Nông dân</a></li>
+						<li class="active">Kỷ thuật xử lý ra hoa</li>
+					</ol>
+				</section>
+				<!-- /.content -->
+				<section class="content">
+					<!-- /.content-wrapper -->
+					<div class="row">
+							<div class="col-md-12">
+								<div class="box box-primary">
+										<div class="box-header with-border text-center">
+											<h3 class="box-title" ><b> Tạo tán và tỉa cành </b></h3>
+										</div>
+										<div class="box-body">
+											<div class="row">
+												<div class="col-md-12 table-responsive">
+													<table class="table table-bordered table-hover">
+															<tr>
+																	<th rowspan="2">Thời điểm</th>
+																	<th colspan="2">Kỹ thuật tỉa cành hàng năm</th>
+															</tr>
+															<tr>
+																	<th>Thời điểm tỉa</th>
+																	<th>Cách tỉa</th>
+															</tr>
+														<tbody id="">
+														</tbody>
+													</table>			
+												</div>
+											</div>
+										</div>			
+									</div>
+							</div>
+						</div>
+				</section>
+			</div>
+			<% include ../../partials/script.ejs %>
+			<% include ../../partials/sidebar.ejs %>
+		</div>
+  </body>
+</html>
